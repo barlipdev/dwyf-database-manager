@@ -1,0 +1,116 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    </head>
+        <body>
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Przepiśnik</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Panel główny</a>
+                  </li>
+              </div>
+            </div>
+          </nav>
+            <div class="container overflow-hidden">
+                <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+                <div class="row gx-5">
+                
+                  <div class="col">
+                    <div class="shadow p-3 mb-5 bg-body rounded">
+                      <h2 class="display-3">
+                          Dodaj przepis
+                      </h2>
+                      <form class="needs-validation" id="recipeForm" onsubmit="return false">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label lead" >Nazwa:</label>
+                            <input type="name" class="form-control" id="recipeName" name="recipeName" required>
+                            <label for="exampleInputEmail1" class="form-label lead">Rodzaj:</label>
+                            <select class="form-select lead" aria-label="Typ dania" name="typeSelect" required>
+                                <option class="lead" value="Sniadanie">Śniadanie</option>
+                                <option class="lead" value="Obiad">Obiad</option>
+                                <option class="lead" value="Kolacja">Kolacja</option>
+                                <option class="lead" value="Deser">Deser</option>
+                                <option class="lead" value="Inne">Inne</option>
+                              </select>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label lead">Opis przygotowania:</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" required></textarea>
+                              </div>
+                            <div id="emailHelp" class="form-text">Kropka oznacza kolejny punkt.</div>
+                        </div>
+                        <button id="addRecipeButton" type="submit" class="btn btn-success" >Dodaj przepis</button>
+                        <div id="addRecipeHelp" class="form-text">PAMIĘTAJ DODAĆ PRODUKTY!</div>
+                      
+                    </form>
+                  </div>
+                  <div class="shadow p-3 mb-5 bg-body rounded">
+                    <h1 class="lead">
+                        Dodaj produkt
+                    </h1>
+                    <div class="container">
+                        <form id="productForm" onsubmit="return false" class="needs-validation2">
+                        <div class="row">
+                          <div class="col">
+                            <label for="productName" class="form-label lead">Nazwa:</label>
+                            <input type="name" class="form-control" id="productName" name="productName" required>
+                          </div>
+                          <div class="col">
+                            <label for="productCount" class="form-label lead">Tag:</label>
+                            <input type="name" class="form-control" id="productTag" name="productTag" required>
+                            <div id="tagHelp" class="form-text">Przykład: milk, chesse itd. </div>
+                          </div>
+                          <div class="col">
+                            <label for="productCount" class="form-label lead">Ilość:</label>
+                            <input type="name" class="form-control" id="productCount" name="productCount" required>
+                          </div>
+                          
+                          <div class="col">
+                            <label for="exampleInputEmail1" class="form-label lead">Typ:</label>
+                            <select class="form-select" aria-label="Typ wagi produktu" name="productType" required>
+                                <option class="lead" selected>Wybierz typ wagi</option>
+                                <option class="lead" value="SZT">SZT (Sztuki)</option>
+                                <option class="lead" value="KG">KG (Kilogramy)</option>
+                                <option class="lead" value="L">L (Litry)</option>
+                              </select>
+                          </div>
+                          <div class="col">
+                            <div><label for="exampleInputEmail1" class="form-label lead">Akcje:</label></div>
+                            <button id="addProductButton" type="submit" class="btn btn-warning">Dodaj produkt</button>
+                          </div>
+                        </div>
+                    </form>
+                    </div>
+                  </div>
+                  <div class="shadow p-3 mb-5 bg-body rounded">
+                  <div class="col">
+                    <table id="productTable" class="table table-hover table-borderless table-light ">
+                        <thead>
+                          <tr>
+                            <th class="lead" scope="col">Nazwa Produktu</th>
+                            <th class="lead" scope="col">Tag</th>
+                            <th class="lead" scope="col">Ilość</th>
+                            <th class="lead" scope="col">Typ</th>
+                            <th class="lead" scope="col">Akcje</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                         
+                        </tbody>
+                      </table>
+                  </div>
+                </div>
+                </div>
+              </div>
+              <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+              <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+              <script src="addRecipe.js"></script>
+              
+        </body>
+</html>
