@@ -65,7 +65,7 @@ async function addRecipe() {
         productList: products 
     };
 
-    let res = await axios.post('https://mycorsproxy-social.herokuapp.com/https://dwyf-api.herokuapp.com/recipe', payload,config);
+    let res = await axios.post('https://mycorsproxy-social.herokuapp.com/https://dwyf-api.herokuapp.com/recipe/add', payload,config);
 
     let data = res.data;
     console.log(data);

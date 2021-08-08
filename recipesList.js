@@ -73,7 +73,7 @@ async function getRecipeChart(jwt) {
     }
   });
 
-  axios.get('https://mycorsproxy-social.herokuapp.com/https://dwyf-api.herokuapp.com/recipe',config)
+  await axios.get('https://mycorsproxy-social.herokuapp.com/https://dwyf-api.herokuapp.com/recipe/all',config)
   .then(function (response) {
     let json = response.data;
 
