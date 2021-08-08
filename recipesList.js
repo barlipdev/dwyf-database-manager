@@ -1,4 +1,4 @@
-window.onload = getRecipeChart();
+window.onload = getRecipeChart(window.sessionStorage.getItem('status'));
 var dataChart;
 
 function searchBar() {
@@ -22,11 +22,36 @@ function searchBar() {
     }
   }
 }
+// window.sessionStorage.getItem('uid'),
+
+// async getUserFriends(uid, jwt) {
+//   var auth = "Bearer " + jwt;
+//   try {
+//       const config = {
+//           headers: {
+//               "content-type": "application/json",
+//               "Authorization": auth
+//           }
+//       };
+//       let res = await axios.get(endpoint + "/users/friends/" + uid, config);
+//       return res.data;
+//   } catch (err) {
+//       console.log(err);
+//   }
+// }
 
 
-async function getRecipeChart() {
 
-  let res = await axios.get('https://mycorsproxy-social.herokuapp.com/https://dwyf-api.herokuapp.com/recipe/chart');
+async function getRecipeChart(jwt) {
+  var auth = "Bearer " + jwt;
+  const config = {
+    headers: {
+        "content-type": "application/json",
+        "Authorization": auth
+    }
+  };  
+
+  let res = await axios.get('https://mycorsproxy-social.herokuapp.com/https://dwyf-api.herokuapp.com/recipe/chart',config);
 
   let data = res.data;
   dataChart = res.data;
