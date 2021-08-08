@@ -49,6 +49,8 @@ button.addEventListener('click',function () {
         }, false)
   })
 
+console.log("fix");
+
 async function addRecipe() {
   var auth = "Bearer " + window.sessionStorage.getItem('status');
   const config = {
