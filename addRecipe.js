@@ -50,6 +50,14 @@ button.addEventListener('click',function () {
   })
 
 async function addRecipe() {
+  var auth = "Bearer " + window.sessionStorage.getItem('status');
+  const config = {
+    headers: {
+        "content-type": "application/json",
+        "Authorization": auth
+    }
+  };  
+
     let payload = { 
         name: $( "#recipeForm" ).serializeArray()[0].value,
         foodType: $( "#recipeForm" ).serializeArray()[1].value,
@@ -57,7 +65,7 @@ async function addRecipe() {
         productList: products 
     };
 
-    let res = await axios.post('https://mycorsproxy-social.herokuapp.com/https://dwyf-api.herokuapp.com/recipe', payload);
+    let res = await axios.post('https://mycorsproxy-social.herokuapp.com/https://dwyf-api.herokuapp.com/recipe', payload,config);
 
     let data = res.data;
     console.log(data);

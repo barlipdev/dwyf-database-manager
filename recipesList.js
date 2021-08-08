@@ -72,28 +72,31 @@ async function getRecipeChart(jwt) {
       }
     }
   });
+
+  axios.get('https://mycorsproxy-social.herokuapp.com/https://dwyf-api.herokuapp.com/recipe',config)
+  .then(function (response) {
+    let json = response.data;
+
+    let tableText = "";
+    json.forEach((recipe) => {
+        tableText += "<tr>";
+        tableText += "<td>"+recipe.name+"</td>";
+        tableText += "<td>"+recipe.foodType+"</td>";
+        tableText += "</tr>";
+    });
+
+    document.getElementById('tableBody').innerHTML = tableText;
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+  .finally(function () {
+    // always executed
+});
+
 }
 
-axios.get('https://mycorsproxy-social.herokuapp.com/https://dwyf-api.herokuapp.com/recipe')
-              .then(function (response) {
-                let json = response.data;
 
-                let tableText = "";
-                json.forEach((recipe) => {
-                    tableText += "<tr>";
-                    tableText += "<td>"+recipe.name+"</td>";
-                    tableText += "<td>"+recipe.foodType+"</td>";
-                    tableText += "</tr>";
-                });
-
-                document.getElementById('tableBody').innerHTML = tableText;
-              })
-              .catch(function (error) {
-                console.log(error);
-              })
-              .finally(function () {
-                // always executed
-});
 
 // Change the selector if needed
 var $table = $('#recipeTable'),
