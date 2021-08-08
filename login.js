@@ -29,7 +29,7 @@ async function login(email, password) {
                 "content-type": "application/json"
             }
         };
-        let res = await axios.post(endpoint + "/login", { "email": email, "password": password }, config);
+        let res = await axios.post("https://mycorsproxy-social.herokuapp.com/https://dwyf-api.herokuapp.com/login", { "email": email, "password": password }, config);
         return res.data;
     } catch (err) {
         console.log(err);
