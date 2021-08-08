@@ -26,7 +26,7 @@ function searchBar() {
 
 async function getRecipeChart() {
 
-  let res = await axios.get('https://mycorsproxy-social.herokuapp.com/https://dwyf-api.herokuapp.com/recipeChart');
+  let res = await axios.get('https://mycorsproxy-social.herokuapp.com/https://dwyf-api.herokuapp.com/recipe/chart');
 
   let data = res.data;
   dataChart = res.data;
