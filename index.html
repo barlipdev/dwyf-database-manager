@@ -21,13 +21,23 @@
             <div class = "main-container">
                 <button type="button" class="btn btn-light-green px-12"><i class="fas fa-plus fa-9x" aria-hidden="true" onclick="window.location='addRecipe.html'"></i></button>
                 <button type="button" class="btn btn-light-blue px-12"><i class="fas fa-book-open fa-9x" aria-hidden="true" onclick="window.location='recipesList.html'"></i></button>
-            </div>
+                <button type="button" class="btn btn-danger px-12" data-toggle="modal" data-target=".bs-example-modal-sm"><i class="fas fa-sign-out-alt fa-9x" aria-hidden="true"></i> </button>
+            </div> 
         </div>
        
   
     </div>
     <!-- Grid column -->
   </div>
+  <div class="modal bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+             <div class="modal-header"><h4>Wyloguj <i class="fa fa-lock"></i></h4></div>
+             <div class="modal-body"><i class="fa fa-question-circle"></i> Napewno chcesz się wylogować?</div>
+            <div class="modal-footer"><a onclick="UserLogout()" class="btn btn-primary btn-block">Wyloguj</a></div>
+        </div>
+    </div>
+</div>
   <!-- Grid row -->
 
     <script type="text/javascript" src="node_modules/mdbootstrap/js/jquery.min.js"></script>
@@ -35,6 +45,9 @@
     <script type="text/javascript" src="node_modules/mdbootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="node_modules/mdbootstrap/js/mdb.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
 </body>
-
+    <script src="index.js"></script>
 </html>
