@@ -12,9 +12,10 @@ form.onsubmit = function(event) {
                 storage.setItem('uid', resp[1]);
                 storage.setItem('status', status);
                 window.location.replace("https://dwyf-manager.herokuapp.com//index.html");
-
             } catch (error) {
-                console.log(error);
+                swal("Coś poszło nie tak!","Prawdopodobnie złe dane do logowania :)", "error").then(() => {
+                    window.location.href = "login.html";
+                  });;
             }
 
         })
