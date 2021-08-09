@@ -1,5 +1,5 @@
 function UserLogout(){
-    window.sessionStorage.setItem('status',null);
+    window.sessionStorage.removeItem('status');
     sleep(3000);
     window.location.href = "login.html";
 }
