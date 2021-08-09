@@ -12,9 +12,8 @@ form.onsubmit = function(event) {
                 storage.setItem('uid', resp[1]);
                 storage.setItem('status', status);
                 swal("Udało się zalogować!","Kliknij 'OK' aby przejść do panelu", "success").then(() => {
-                    window.location.href = "login.html";
+                    window.location.replace("https://dwyf-manager.herokuapp.com//index.html");
                 });;
-                window.location.replace("https://dwyf-manager.herokuapp.com//index.html");
             } catch (error) {
                 swal("Coś poszło nie tak!","Prawdopodobnie złe dane do logowania :)", "error").then(() => {
                     window.location.href = "login.html";
