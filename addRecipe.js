@@ -4,7 +4,9 @@ var button = document.getElementById('addRecipeButton');
 var button2 = document.getElementById('addProductButton');
 
 if (window.sessionStorage.getItem('status') == null){
-  window.location.href = "login.html";
+  swal("Sesja wygasła!","Musisz zalogować się jeszcze raz :)", "error").then(() => {
+    window.location.href = "login.html";
+  });;
 }
 
 //table operations

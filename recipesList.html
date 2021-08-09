@@ -23,36 +23,38 @@
         </div>
       </div>
     </nav>
-
-    <div class="container px-4">
-      <div class="row gx-5">
-        <div class="col">
-         <div class="p-3 border bg-light">
-          <canvas id="pie-chart" width="400" height="450"></canvas>
-         </div>
-        </div>
-        <div class="col">
-          <input type="text" id="searchBar" onkeyup="searchBar()" placeholder="Wyszukaj po nazwie..">
-          <div class="scroll">
-          <div class="p-3 border bg-light" >
-            <table id="recipeTable" class="table table-hover table-borderless table-light ">
-                        <thead>
-                          <tr>
-                            <th class="lead" scope="col">Przepis</th>
-                            <th class="lead" scope="col">Typ dania</th>
-                            <th class="lead" scope="col">Akcje</th>
-                          </tr>
-                        </thead>
-                        <tbody id="tableBody">
-                         
-                        </tbody>
-                      </table>
+    <div class="fadeInDown">
+      <div class="container px-4">
+        <div class="row gx-5">
+          <div class="col">
+           <div class="p-3 border bg-light">
+            <canvas id="pie-chart" width="400" height="450"></canvas>
+           </div>
           </div>
-        </div>
+          <div class="col">
+            <input type="text" id="searchBar" onkeyup="searchBar()" placeholder="Wyszukaj po nazwie..">
+            <div class="scroll">
+            <div class="p-3 border bg-light" >
+              <table id="recipeTable" class="table table-hover table-borderless table-light ">
+                          <thead>
+                            <tr>
+                              <th class="lead" scope="col">Przepis</th>
+                              <th class="lead" scope="col">Typ dania</th>
+                              <th class="lead" scope="col">Akcje</th>
+                            </tr>
+                          </thead>
+                          <tbody id="tableBody">
+                           
+                          </tbody>
+                        </table>
+            </div>
+          </div>
+          </div>
         </div>
       </div>
     </div>
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="recipesList.js"></script>
+    
   </body>
 </html>
