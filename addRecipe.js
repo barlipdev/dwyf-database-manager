@@ -2,6 +2,11 @@
 var products = [];
 var button = document.getElementById('addRecipeButton');
 var button2 = document.getElementById('addProductButton');
+
+if (window.sessionStorage.getItem('status') == null){
+  window.location.href = "login.html";
+}
+
 //table operations
 $("#productTable").on('click', '#removebtn', function () {
     $(this).closest('tr').remove();
