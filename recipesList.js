@@ -1,6 +1,10 @@
 window.onload = getRecipeChart(window.sessionStorage.getItem('status'));
 var dataChart;
 
+if (window.sessionStorage.getItem('status') == null){
+  window.location.href = "login.html";
+}
+
 function searchBar() {
   // Declare variables
   var input, filter, table, tr, td, i, txtValue;
