@@ -7,6 +7,23 @@ if (window.sessionStorage.getItem('status') == null){
   });;
 }
 
+$("#recipeTable").on('click', '#removeRecipe', function () {
+  deleteRecipe($(this).closest("tr")[0].id);
+  $(this).closest('tr').remove();
+});
+
+async function deleteRecipe(id){
+  var auth = "Bearer " + window.sessionStorage.getItem('status');
+  const config = {
+    headers: {
+        "content-type": "application/json",
+        "Authorization": auth
+    }
+  };
+  let res = await axios.delete('https://mycorsproxy-social.herokuapp.com/https://dwyf-api.herokuapp.com/recipe/'+id,config);
+  swal("Udało się!","Usunąłeś przepis :)", "success");
+}
+
 function searchBar() {
   // Declare variables
   var input, filter, table, tr, td, i, txtValue;
@@ -28,25 +45,6 @@ function searchBar() {
     }
   }
 }
-// window.sessionStorage.getItem('uid'),
-
-// async getUserFriends(uid, jwt) {
-//   var auth = "Bearer " + jwt;
-//   try {
-//       const config = {
-//           headers: {
-//               "content-type": "application/json",
-//               "Authorization": auth
-//           }
-//       };
-//       let res = await axios.get(endpoint + "/users/friends/" + uid, config);
-//       return res.data;
-//   } catch (err) {
-//       console.log(err);
-//   }
-// }
-
-
 
 async function getRecipeChart(jwt) {
   var auth = "Bearer " + jwt;
@@ -85,9 +83,10 @@ async function getRecipeChart(jwt) {
 
     let tableText = "";
     json.forEach((recipe) => {
-        tableText += "<tr>";
+        tableText += "<tr id='"+recipe.id+"'>";
         tableText += "<td>"+recipe.name+"</td>";
         tableText += "<td>"+recipe.foodType+"</td>";
+        tableText += "<td>"+"<button id='removeRecipe' type='submit' class='btn btn-danger'>Usuń</button>"+"</td>";
         tableText += "</tr>";
     });
 
