@@ -6,16 +6,17 @@ var resp;
 
 form.onsubmit = function(event) {
     login(inputs["email"].value, inputs["password"].value)
-        .then(status => {
+        .then(response => {
             try {
-                resp = status.split('UID', 2);
-                storage.setItem('uid', resp[1]);
-                storage.setItem('status', status);
+                //resp = status.split('UID', 2);
+                storage.setItem('uid', response.id);
+                storage.setItem('status', response.auth_token);
                 swal("Udało się zalogować!","Kliknij 'OK' aby przejść do panelu", "success").then(() => {
                     window.location.href = "index.html";
                 });;
             } catch (error) {
-                swal("Coś poszło nie tak!","Prawdopodobnie złe dane do logowania :)", "error").then(() => {
+                console.log(error)
+                swal("Coś poszło nie tak!","Prawdopodobnie złe dane do logowania :) "+error, "error").then(() => {
                     window.location.href = "login.html";
                   });;
             }
